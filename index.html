@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-icons">
+                <button class="icon-btn" id="openButton">
+                    <i data-lucide="folder-open"></i>
+                </button>
+                <button class="icon-btn" id="settings-btn">
+                    <i data-lucide="settings"></i>
+                </button>
+                <button class="icon-btn" id="theme-toggle">
+                    <i data-lucide="moon"></i>
+                </button>
+                <button class="icon-btn" id="saveButton">
+                    <i data-lucide="save"></i>
+                </button>
+            </div>
+        </aside>
+        <div class="main-section">
+            <div class="search-bar">
+                <i data-lucide="search"></i>
+                <input type="text" id="search-input" placeholder="Search...">
+            </div>
+            <div class="content">
+                <div class="folders-section">
+                    <div class="folders-header">
+                        <h2>Folders</h2>
+                        <button id="add-folder-btn" class="btn">
+                            <i data-lucide="folder-plus"></i>
+                        </button>
+                        
+
+                    </div>
+                    <ul id="folder-list"></ul>
+                </div>
+                <div class="tasks-section">
+                    <h1 id="current-folder">Select a Folder</h1>
+                    <ul id="task-list"></ul>
+                    <button id="add-task-btn" class="btn" style="display: none;">
+                        <i data-lucide="plus-circle"></i> Add Task
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="close-btn"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <h3>Hidden Folders</h3>
+                <ul id="hidden-folders-list"></ul>
+                <button id="export-btn" class="btn">
+                    <i data-lucide="download"></i> Export to Excel
+                </button>
+                <button id="export-current-folder-btn" class="btn">
+                    <i data-lucide="file-down"></i> Export Current Folder
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit</h2>
+                <button class="close-btn"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="edit-input" placeholder="Enter new name">
+                <button id="save-edit-btn" class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
